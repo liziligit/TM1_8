@@ -1,0 +1,6 @@
+
+script_BM=../script_bm
+cd ../daq
+
+./mytcp -c debugDdrContinue.c
+cd ${script_BM}

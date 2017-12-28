@@ -1,0 +1,9 @@
+script_BM=../script_bm
+cd ${script_BM}
+temp=$1
+Vreset=$2
+./sameVresetConfig.sh ${temp}  ${Vreset}
+./sameVresetDecayPars.sh ${temp}  ${Vreset}
+
+cd ${script_BM}
+

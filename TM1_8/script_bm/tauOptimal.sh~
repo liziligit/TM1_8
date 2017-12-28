@@ -1,0 +1,35 @@
+script_BM=../script_bm
+cd ${script_BM}
+./temperature.sh ${1}
+./tempOptimal.sh ${1}
+guardRingDataPath=../data/dataBase/temp${1}
+proPath=../topmetal1X8
+guardRingDataChar=tau_
+polNData=0
+
+if [ -f "${guardRingDataPath}/${guardRingDataChar}${polNData}.pd1" ]
+then
+rm ${guardRingDataPath}/${guardRingDataChar}${polNData}.pd1
+echo delete========== ${guardRingDataPath}/${guardRingDataChar}${polNData}.pd1
+fi
+
+
+cd ../daq
+
+
+tem=
+tauData=../data/dataBase/temp${1}/tau
+
+
+
+
+while [ ! -f "${guardRingDataPath}/${guardRingDataChar}${polNData}.pd1" ]
+do
+	echo "${guardRingDataPath}/${guardRingDataChar}${polNData}.pd1 don't exist!"
+	./readDdrContinue.ce -out ${tauData}
+done
+cd ${script_BM}
+
+
+root -L -l -q -b  "${proPath}/getPolNPar.cpp++(\"${guardRingDataPath}\",\"${guardRingDataChar}\",\"\",\"pd1\",${polNData})" 
+

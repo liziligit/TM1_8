@@ -1,0 +1,10 @@
+
+script_BM=../script_bm
+
+cd ${script_BM}
+
+./optimalVresetCalibration.sh 26 2
+./runTm2-.sh
+#sleep 1
+#./debugData.sh 
+

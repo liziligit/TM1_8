@@ -1,0 +1,19 @@
+fileStart=$1
+fileEnd=$2
+#./runData.sh ${fileStart} ${fileEnd}
+set i=0
+runData=../data/runData/beam_
+for((i=${fileStart};i<${fileEnd};i++))
+do
+      if [ ! -f "${runData}${i}.pd1" ]; 
+	then 
+       echo "${runData}${i}.pd1 don't exist!"
+	 continue
+	fi
+	#./pd1Topd3.sh ${i}
+      #./pd1Display.sh ${i}
+    ./pd3Display.sh ${i}
+done
+
+
+

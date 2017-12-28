@@ -1,0 +1,6 @@
+script_BM=../script_bm
+cd ${script_BM}
+temp=$1
+./optimalVresetConfig.sh ${temp}
+./optimalVrestPars.sh ${temp}
+

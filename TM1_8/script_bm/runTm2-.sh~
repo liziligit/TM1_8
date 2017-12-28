@@ -1,0 +1,8 @@
+time script_BM=../script_bm
+time cd ../daq
+time ./mytcp -c tm2-NewBoard.c
+time ./mytcp -c adcNewBoard.c
+time ./mytcp -c dacNewBoard.c
+time #./mytcp -c readDdrContinue.c
+time #./mytcp -c debugDdrContinue.c
+time cd ${script_BM}

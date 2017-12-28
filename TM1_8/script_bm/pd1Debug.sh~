@@ -1,0 +1,14 @@
+
+# data to be analysised
+fileNum=$2
+ich=$3
+ipixel=$4
+dataFile=../data/runData/beam_${fileNum}.pd1
+pedeFile=../data/pedeData/pede_0
+cppPath=../topmetal1X8
+
+root  -L -l  -q "${cppPath}/pd1_debug.cpp++(\"${dataFile}\",\"${pedeFile}\",${ich},${ipixel})" 
+
+
+
+

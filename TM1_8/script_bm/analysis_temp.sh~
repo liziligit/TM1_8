@@ -1,0 +1,21 @@
+frameStart=$1
+frameEnd=$2
+
+ifile=69
+ich=0
+iframe=30
+#iframe=200
+set i=0
+runData=../2016-3-23-data/runData/beam_
+#runData=../2016-3-25-data/runData/beam_
+
+for((i=${frameStart};i<${frameEnd};i++))
+do
+      if [ ! -f "${runData}${i}.pd1" ]; 
+	then 
+       echo "${runData}${i}.pd1 don't exist!"
+	 continue
+	fi
+
+       ./pd3Analysis.sh ${ifile} ${ich} ${i}
+done

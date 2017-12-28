@@ -1,0 +1,20 @@
+
+fileNum=$1
+runData=../data/runData/beam_
+  if [ ! -f "${runData}${fileNum}.pd1" ]; 
+then 
+   echo "${runData}${fileNum}.pd1 don't exist!"
+   exit
+  fi 
+./pd1Topd3.sh ${fileNum} 
+
+  
+  
+dataFile=../data/runData/placData3_beam_${fileNum}.pd3  
+cppPath=../topmetal1X8
+
+upLimitFrame=10000000
+upLimitPixel=300
+root -L  -l -q  "${cppPath}/pd3_findParas.cpp++(\"${dataFile}\",${upLimitFrame},${upLimitPixel})" 
+
+
